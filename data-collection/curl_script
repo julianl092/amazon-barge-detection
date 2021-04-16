@@ -1,0 +1,51 @@
+curl -X POST \
+  https://services.sentinel-hub.com/api/v1/process \
+  -H 'Accept: image/tiff' \
+  -H 'Authorization: Bearer eyJraWQiOiJzaCIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJkYzM1OTUyNC03MTFhLTRhZTAtYjdlZS1jOTY4ZmE5MzY5NDgiLCJhdWQiOiJmNmU0OGYyZS04YzQxLTQ4YTgtYjZkYi0yNjBjYzI0NGNjNTciLCJqdGkiOiIzZWRjYWQ5NC02OTNmLTRiNWUtOGIzZC1kYjA5NWY3MTU0YzciLCJleHAiOjE2MTg1NDM4NDYsIm5hbWUiOiJNYWdnaWUgV2FuZyIsImVtYWlsIjoibWFnZ2kzd2FuZ0BnbWFpbC5jb20iLCJnaXZlbl9uYW1lIjoiTWFnZ2llIiwiZmFtaWx5X25hbWUiOiJXYW5nIiwic2lkIjoiOWMxNWQwYjAtOTAwNS00OGRlLThhMTMtNDg1MjEzYmUwMDMwIiwiZGlkIjoxLCJhaWQiOiIyNWVmNmYxNy04NmZhLTRiNDEtYTg1ZS1iYTI4YTU0ODliMWYiLCJkIjp7IjEiOnsicmEiOnsicmFnIjoxfSwidCI6MTEwMDB9fX0.hgBdiMjELlz8wFcSsNJu98gtVjlKz_4KqZIsJoTVPMAehdm_moJ26SX9dfhileT-MBa6POIeF3pgFad9c_rAkZIvT2nXIooDvjoLR3z2iL7CmPbDy2ShwXlwj7hAfsw9zdnRS-ykxhj8IXZT7XyXBtKuwuLnfEp2q0OFnpMcrd-kn5u5OyHBeB2000KxvnKnpJJwEv7LFGEO9jsJf7UGs0RG1MEe4Mpb8eZUIPfIlCNF0kq49FD8AUhyfU1SWR1Q-rXso6fj4GV6S3asQcGEDNtrAZyc0bRDBEuMeiqF9SBazEaraoukkHxLeIVlHr4QsGsanNjt_7HZXzIgS3N6yg' \
+  -F 'request={ "input": {
+        "bounds": {
+            "bbox": [
+              -64.82439 -9.526611 -64.80439 -9.506611 
+            ],
+           "properties": {
+                "crs": CRS.WGS84
+            }
+        },
+        "data": [
+            {
+                "type": "S1GRD",
+                "dataFilter": {
+                    "timeRange": {
+                        "from": "2019-02-02T00:00:00Z",
+                        "to": "2019-04-02T23:59:59Z"
+                    }
+                },
+                "processing": {
+                    "orthorectify": "true"
+                }
+            }
+        ]
+    },
+    "output": {
+        "width": 512,
+        "height": 512,
+        "responses": [
+            {
+                "identifier": "default",
+                "format": {
+                    "type": "image/tiff"
+                }
+            }
+        ]
+    }
+}' \
+  -F 'evalscript=//VERSION=3
+function setup() {
+  return {
+    input: ["VV"],
+    output: { id:"default", bands: 1,sampleType: SampleType.FLOAT32}
+  }
+}
+function evaluatePixel(samples) {
+  return [2 * samples.VV]
+}' --output yo.tiff

@@ -1,0 +1,20 @@
+{
+  "instance_id": "2a5bbc89-d50a-416f-84cb-417ed082b2c0",
+  "sh_client_id": "f6e48f2e-8c41-48a8-b6db-260cc244cc57",
+  "sh_client_secret": "Ml>,wUNj5C9[p(6Y<Ld28vkWRs/*%]M{B4{i68Wr",
+  "sh_base_url": "https://services.sentinel-hub.com",
+  "geopedia_wms_url": "https://service.geopedia.world",
+  "geopedia_rest_url": "https://www.geopedia.world/rest",
+  "aws_access_key_id": "",
+  "aws_secret_access_key": "",
+  "aws_metadata_url": "https://roda.sentinel-hub.com",
+  "aws_s3_l1c_bucket": "sentinel-s2-l1c",
+  "aws_s3_l2a_bucket": "sentinel-s2-l2a",
+  "opensearch_url": "http://opensearch.sentinel-hub.com/resto/api/collections/Sentinel2",
+  "max_wfs_records_per_query": 100,
+  "max_opensearch_records_per_query": 500,
+  "max_download_attempts": 4,
+  "download_sleep_time": 5,
+  "download_timeout_seconds": 120,
+  "number_of_download_processes": 1
+}

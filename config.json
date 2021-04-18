@@ -1,7 +1,7 @@
 {
-  "instance_id": "2a5bbc89-d50a-416f-84cb-417ed082b2c0",
-  "sh_client_id": "f6e48f2e-8c41-48a8-b6db-260cc244cc57",
-  "sh_client_secret": "Ml>,wUNj5C9[p(6Y<Ld28vkWRs/*%]M{B4{i68Wr",
+  "instance_id": "aa86d4ad-9b9d-4154-9a1b-b119e6f68d69",
+  "sh_client_id": "36bcd302-fd3b-4488-941a-54441bb8db18",
+  "sh_client_secret": "el2)!^a,aUrjX-}1U/m.4|M;pw.3+frg93&02Q*Q",
   "sh_base_url": "https://services.sentinel-hub.com",
   "geopedia_wms_url": "https://service.geopedia.world",
   "geopedia_rest_url": "https://www.geopedia.world/rest",
